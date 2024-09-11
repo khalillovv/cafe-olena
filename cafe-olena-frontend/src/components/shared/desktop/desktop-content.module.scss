@@ -1,13 +1,39 @@
 .content {
 	display: flex;
 	flex-direction: row;
-	// align-items: center;
 	justify-content: space-between;
 	gap: 16px;
 	flex: 1;
+	border: 1px solid hsl(var(--border));
 
 	padding: 24px;
-	margin-top: 24px;
+	margin: 24px 0;
 	background-color: hsl(var(--white-background));
 	border-radius: 16px;
+
+	.categories {
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		top: 112px;
+		height: calc(100vh - 112px);
+		overflow-y: auto;
+
+		scrollbar-width: none;
+	}
+
+	.menu {
+		flex: 1;
+		padding: 20px;
+		overflow-y: auto; /* Позволяет прокручивать содержимое меню */
+	}
+
+	.information {
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		top: 112px;
+		height: calc(100vh - 112px);
+		overflow-y: auto;
+	}
 }

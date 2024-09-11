@@ -14,15 +14,15 @@ html {
 
 @layer base {
 	:root {
-		--background: 121, 74.5%, 40%;
+		--background: 137, 91%, 18%;
 		--white-background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
-		--gray: 0, 0%, 97%;
+		--gray: 0, 0%, 98%;
 		--card: 0 0% 100%;
 		--card-foreground: 240 10% 3.9%;
 		--popover: 0 0% 100%;
 		--popover-foreground: 240 10% 3.9%;
-		--primary: 130, 72%, 67%;
+		--primary: 137, 98%, 28%;
 		--primary-foreground: 355.7 100% 97.3%;
 		--secondary: 240 4.8% 95.9%;
 		--secondary-foreground: 240 5.9% 10%;
@@ -118,4 +118,20 @@ html {
 
 #nprogress .spinner-icon {
 	@apply border-t-primary border-l-primary !important;
+}
+
+/* Стилизация всей полосы прокрутки */
+::-webkit-scrollbar {
+	width: 6px; /* Ширина полосы прокрутки */
+	height: 6px; /* Высота полосы прокрутки (для горизонтального скролла) */
+}
+
+/* Стилизация ползунка (thumb) */
+::-webkit-scrollbar-thumb {
+	background-color: #888; /* Цвет ползунка */
+}
+
+/* Стилизация трека (track) */
+::-webkit-scrollbar-track {
+	background-color: #f1f1f1; /* Цвет трека */
 }

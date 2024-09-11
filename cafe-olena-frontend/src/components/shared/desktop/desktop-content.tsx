@@ -11,9 +11,15 @@ interface Props {
 export const DesktopContent: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn(styles.content, className)}>
-			<DesktopCategories />
-			<DesktopMenu />
-			<DesktopInformation />
+			<div className={styles.categories}>
+				<DesktopCategories />
+			</div>
+			<div className={styles.menu}>
+				<DesktopMenu />
+			</div>
+			<div className={styles.information}>
+				<DesktopInformation />
+			</div>
 		</div>
 	)
 }
