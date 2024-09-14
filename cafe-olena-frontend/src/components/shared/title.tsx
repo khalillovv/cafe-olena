@@ -8,7 +8,7 @@ interface Props {
 
 export const Title: React.FC<Props> = ({ className, title }) => {
 	return (
-		<div className={cn('text-3xl leading-[32px] font-bold', className)}>
+		<div className={cn('text-[24px] leading-[32px] font-extrabold', className)}>
 			{title}
 		</div>
 	)

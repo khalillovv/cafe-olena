@@ -1,0 +1,54 @@
+.productsGroupList {
+	border: 2px solid hsl(var(--border));
+	border-radius: 16px;
+
+	.title {
+		background: hsl(var(--gray));
+		padding: 24px;
+		text-align: center;
+		border-top-left-radius: 16px;
+		border-top-right-radius: 16px;
+		border-bottom: 2px solid hsl(var(--border));
+
+		text-transform: uppercase;
+	}
+
+	.product_block {
+		border-bottom: 2px solid hsl(var(--border));
+		padding: 16px;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		&__title {
+			font-size: 20px;
+			font-weight: 800;
+			line-height: 24px;
+			margin-bottom: 4px;
+		}
+
+		&__price {
+			color: hsl(var(--primary));
+			font-size: 16px;
+			line-height: 24px;
+			margin-bottom: 4px;
+			font-weight: 700;
+		}
+
+		&__ingredients {
+			font-size: 13px;
+			line-height: 20px;
+			font-weight: 400;
+		}
+
+		&__grams {
+			font-size: 11px;
+			line-height: 16px;
+			font-weight: 600;
+			margin-top: 8px;
+
+			color: hsl(var(--gray-dark));
+		}
+	}
+}

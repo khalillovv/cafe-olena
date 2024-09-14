@@ -14,9 +14,9 @@
 	.categories {
 		position: sticky;
 		top: 0;
-		height: 100vh;
 		top: 112px;
-		height: calc(100vh - 112px);
+		height: 100%;
+		height: calc(100% - 112px);
 		overflow-y: auto;
 
 		scrollbar-width: none;
@@ -24,16 +24,15 @@
 
 	.menu {
 		flex: 1;
-		padding: 20px;
 		overflow-y: auto; /* Позволяет прокручивать содержимое меню */
 	}
 
 	.information {
 		position: sticky;
 		top: 0;
-		height: 100vh;
 		top: 112px;
-		height: calc(100vh - 112px);
+		height: 100%;
+		height: calc(100% - 112px);
 		overflow-y: auto;
 	}
 }

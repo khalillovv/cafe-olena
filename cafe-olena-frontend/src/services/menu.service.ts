@@ -5,8 +5,8 @@ class MenuService {
 	private BASE_URL = '/menu'
 
 	async getMenu() {
-		const response = await axiosWithAuth.get<IMenu>(this.BASE_URL)
-		return response
+		const response = await axiosWithAuth.get<IMenu[]>(this.BASE_URL)
+		return response.data
 	}
 
 	async createMenu(data: TypeMenuFormState) {
