@@ -4,6 +4,7 @@ export {
 	AccordionItem,
 	AccordionTrigger,
 } from './accordion'
+export { Field } from './Field'
 export {
 	Select,
 	SelectContent,

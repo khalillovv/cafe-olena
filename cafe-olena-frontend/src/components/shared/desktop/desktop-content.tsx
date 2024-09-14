@@ -1,3 +1,5 @@
+'use client'
+import { useMenu } from '@/lib/useMenu'
 import { cn } from '@/lib/utils'
 import React from 'react'
 import { DesktopCategories } from './desktop-categories'
@@ -9,16 +11,17 @@ interface Props {
 }
 
 export const DesktopContent: React.FC<Props> = ({ className }) => {
+	const { menu } = useMenu()
 	return (
 		<div className={cn(styles.content, className)}>
 			<div className={styles.categories}>
-				<DesktopCategories />
+				<DesktopCategories menu={menu} className='mt-2' />
 			</div>
 			<div className={styles.menu}>
-				<DesktopMenu />
+				<DesktopMenu menu={menu} />
 			</div>
 			<div className={styles.information}>
-				<DesktopInformation />
+				<DesktopInformation className='mt-2' />
 			</div>
 		</div>
 	)

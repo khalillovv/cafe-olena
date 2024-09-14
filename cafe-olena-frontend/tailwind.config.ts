@@ -23,6 +23,7 @@ const config: Config = {
 				background: 'hsl(var(--background))',
 				whiteBackground: 'hsl(var(--white-background))',
 				foreground: 'hsl(var(--foreground))',
+				grayDark: 'hsl(var(--gray-dark))',
 				gray: 'hsl(var(--gray))',
 				card: {
 					DEFAULT: 'hsl(var(--card))',

@@ -7,7 +7,15 @@ export class MenuService {
 	constructor(private prisma: PrismaService) {}
 
 	async getAll() {
-		return this.prisma.menu.findMany()
+		return this.prisma.menu.findMany({
+			include: {
+				categories: {
+					include: {
+						products: true,
+					},
+				},
+			},
+		})
 	}
 
 	async create(dto: MenuDto) {

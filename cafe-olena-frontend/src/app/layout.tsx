@@ -1,11 +1,11 @@
 import { Container, Header } from '@/components'
 import { SITE_NAME } from '@/constants/seo.constants'
 import type { Metadata } from 'next'
-import { Noto_Sans } from 'next/font/google'
+import { Roboto_Slab } from 'next/font/google'
 import './globals.scss'
 import { Providers } from './providers'
 
-const zen = Noto_Sans({
+const zen = Roboto_Slab({
 	subsets: ['cyrillic', 'latin'],
 	weight: ['300', '400', '500', '600', '700'],
 	display: 'swap',
