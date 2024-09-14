@@ -5,15 +5,41 @@ import { Title } from './title'
 
 interface Props {
 	title: string
-	//TODO: items: IProduct[]
-	items: any
+	items?: any
 	className?: string
 	categoryId: number
 }
 
+const items = [
+	{
+		id: 1,
+		name: 'Маргарита',
+		ingredients: 'Тесто, сыр, помидор, огурец, лук, соль, перец',
+		price: '200',
+		grams: '200г',
+		сategoryId: 2,
+	},
+	{
+		id: 2,
+		name: 'Маргарита',
+		ingredients: 'Тесто, сыр, помидор, огурец, лук, соль, перец',
+		price: '200',
+		grams: '200г',
+		сategoryId: 2,
+	},
+	{
+		id: 3,
+		name: 'Маргарита',
+		ingredients: 'Тесто, сыр, помидор, огурец, лук, соль, перец',
+		price: '200',
+		grams: '200г',
+		сategoryId: 2,
+	},
+]
+
 export const ProductsGroupList: React.FC<Props> = ({
 	title,
-	items,
+	// items,
 	className,
 }) => {
 	return (
