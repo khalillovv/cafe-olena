@@ -12,7 +12,6 @@ interface Props {
 export const DesktopMenu: React.FC<Props> = ({ menu, className }) => {
 	return (
 		<div className={cn('', className)}>
-			{/* TODO: add items */}
 			<ProductsGroupList title='Пиццы' categoryId={2} />
 		</div>
 	)
