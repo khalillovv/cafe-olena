@@ -63,7 +63,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
 			</Container>
 			<div className='border border-border py-5'>
 				<Container>
-					<p className='text-[12px] text-background'>
+					<p className='text-[12px]'>
 						&copy; {new Date().getFullYear()} Кафе-Бар Олена
 					</p>
 				</Container>
