@@ -13,6 +13,8 @@ export const DesktopMenu: React.FC<Props> = ({ menu, className }) => {
 	return (
 		<div className={cn('', className)}>
 			<ProductsGroupList title='Пиццы' categoryId={2} />
+			<ProductsGroupList title='Пиццы' categoryId={2} />
+			<ProductsGroupList title='Пиццы' categoryId={2} />
 		</div>
 	)
 }

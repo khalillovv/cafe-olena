@@ -1,5 +1,6 @@
 export { Container } from './container'
 export * from './desktop'
+export { Footer } from './footer'
 export { Header } from './header'
 export { ProductCard } from './product-card'
 export { ProductsGroupList } from './products-group-list'

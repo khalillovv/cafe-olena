@@ -105,7 +105,12 @@ html {
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply text-foreground;
+		background: url('/assets/bg.png');
+		background-size: cover; /* Фон занимает весь экран */
+		background-position: center; /* Центрирование фона */
+		background-repeat: no-repeat; /* Отключение повторения фона */
+		min-height: 100vh; /* Устанавливаем минимальную высоту экрана */
 	}
 }
 

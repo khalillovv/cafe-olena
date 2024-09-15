@@ -13,6 +13,7 @@ interface Props {
 export const DesktopContent: React.FC<Props> = ({ className }) => {
 	const { menu } = useMenu()
 	return (
+		//TODO: Пофиксить скролл для категорий
 		<div className={cn(styles.content, className)}>
 			<div className={styles.categories}>
 				<DesktopCategories menu={menu} className='mt-2' />

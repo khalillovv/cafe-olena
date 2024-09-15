@@ -1,4 +1,4 @@
-import { Container, Header } from '@/components'
+import { Container, Footer, Header } from '@/components'
 import { SITE_NAME } from '@/constants/seo.constants'
 import type { Metadata } from 'next'
 import { Roboto_Slab } from 'next/font/google'
@@ -29,12 +29,13 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<head>
-				<link data-rh='true' rel='icon' href='/favicon.ico' />
+				<link data-rh='true' rel='icon' href='/assets/logo.png' />
 			</head>
 			<body className={zen.className}>
 				<Providers>
 					<Header />
 					<Container>{children}</Container>
+					<Footer />
 				</Providers>
 			</body>
 		</html>

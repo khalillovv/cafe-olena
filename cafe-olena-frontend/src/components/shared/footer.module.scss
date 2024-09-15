@@ -1,0 +1,11 @@
+.footer {
+	border-top: 1px solid hsl(var(--border));
+	width: 100%;
+	background-color: hsl(var(--white-background));
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		padding: 16px 24px;
+	}
+}
