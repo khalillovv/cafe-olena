@@ -106,11 +106,11 @@ html {
 	}
 	body {
 		@apply text-foreground;
-		background: url('/assets/bg.png');
-		background-size: cover; /* Фон занимает весь экран */
-		background-position: center; /* Центрирование фона */
-		background-repeat: no-repeat; /* Отключение повторения фона */
-		min-height: 100vh; /* Устанавливаем минимальную высоту экрана */
+		background: url('/bg.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		min-height: 100vh;
 	}
 }
 
