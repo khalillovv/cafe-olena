@@ -10,29 +10,29 @@
 	margin: 24px 0;
 	background-color: hsl(var(--white-background));
 	border-radius: 16px;
+}
 
-	.categories {
-		position: sticky;
-		top: 0;
-		top: 112px;
-		height: 100%;
-		height: calc(100% - 112px);
-		overflow-y: auto;
+.categories {
+	position: sticky;
+	top: 112px;
+	height: calc(100vh - 112px);
+	overflow-y: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 
-		scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
 	}
+}
 
-	.menu {
-		flex: 1;
-		overflow-y: auto; /* Позволяет прокручивать содержимое меню */
-	}
+.menu {
+	flex: 1;
+	overflow-y: auto;
+}
 
-	.information {
-		position: sticky;
-		top: 0;
-		top: 112px;
-		height: 100%;
-		height: calc(100% - 112px);
-		overflow-y: auto;
-	}
+.information {
+	position: sticky;
+	top: 112px;
+	height: calc(100vh - 112px);
+	overflow-y: auto;
 }

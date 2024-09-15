@@ -16,7 +16,7 @@ interface Props {
 
 export const DesktopCategories: React.FC<Props> = ({ menu, className }) => {
 	return (
-		<div className={cn('w-[272px]', className)}>
+		<div className={cn('w-[272px] mb-4', className)}>
 			<Accordion type='single' collapsible className='w-full'>
 				{menu &&
 					menu.map(item => (
