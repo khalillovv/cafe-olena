@@ -1,7 +1,7 @@
 import { Container, Footer, Header } from '@/components'
 import { SITE_NAME } from '@/constants/seo.constants'
 import type { Metadata } from 'next'
-import { Roboto_Slab } from 'next/font/google'
+import { Great_Vibes, Roboto_Slab } from 'next/font/google'
 import './globals.scss'
 import { Providers } from './providers'
 
@@ -10,6 +10,14 @@ const zen = Roboto_Slab({
 	weight: ['300', '400', '500', '600', '700'],
 	display: 'swap',
 	variable: '--font-zen',
+	style: ['normal'],
+})
+
+const vibes = Great_Vibes({
+	subsets: ['latin'],
+	weight: ['400'],
+	display: 'swap',
+	variable: '--font-vibes',
 	style: ['normal'],
 })
 
@@ -31,7 +39,7 @@ export default function RootLayout({
 			<head>
 				<link data-rh='true' rel='icon' href='/logo.png' />
 			</head>
-			<body className={zen.className}>
+			<body className={`${zen.className} ${vibes.variable}`}>
 				<Providers>
 					<Header />
 					<Container>{children}</Container>

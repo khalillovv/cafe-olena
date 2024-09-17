@@ -5,8 +5,8 @@ class CategoryService {
 	private BASE_URL = '/category'
 
 	async getCategory() {
-		const response = await axiosWithAuth.get<ICategory>(this.BASE_URL)
-		return response
+		const response = await axiosWithAuth.get<ICategory[]>(this.BASE_URL)
+		return response.data
 	}
 
 	async createCategory(data: TypeCategoryFormState) {

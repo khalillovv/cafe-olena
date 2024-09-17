@@ -10,6 +10,9 @@ interface Props {
 export const DesktopInformation: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn('w-[272px]', className)}>
+			<p className='text-[14px] font-semibold text-grayDark mb-1'>
+				Інформація про заклад
+			</p>
 			<InformationBlock
 				icon={MapPinnedIcon}
 				title='Адреса:'

@@ -11,14 +11,13 @@ interface Props {
 }
 
 export const DesktopContent: React.FC<Props> = ({ className }) => {
-	const { menu } = useMenu()
 	return (
 		<div className={cn(styles.content, className)}>
 			<div className={styles.categories}>
-				<DesktopCategories menu={menu} className='mt-2' />
+				<DesktopCategories className='mt-2' />
 			</div>
 			<div className={styles.menu}>
-				<DesktopMenu menu={menu} />
+				<DesktopMenu />
 			</div>
 			<div className={styles.information}>
 				<DesktopInformation className='mt-2' />

@@ -5,16 +5,16 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui'
+import { useMenu } from '@/lib/useMenu'
 import { cn } from '@/lib/utils'
-import { IMenu } from '@/types/menu.types'
 import React from 'react'
 
 interface Props {
 	className?: string
-	menu?: IMenu[]
 }
 
-export const DesktopCategories: React.FC<Props> = ({ menu, className }) => {
+export const DesktopCategories: React.FC<Props> = ({ className }) => {
+	const { menu } = useMenu()
 	return (
 		<div className={cn('w-[272px] mb-4', className)}>
 			<Accordion type='single' collapsible className='w-full'>

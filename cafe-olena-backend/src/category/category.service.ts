@@ -7,7 +7,11 @@ export class CategoryService {
 	constructor(private prisma: PrismaService) {}
 
 	async getAll() {
-		return this.prisma.category.findMany()
+		return this.prisma.category.findMany({
+			include: {
+				products: true,
+			},
+		})
 	}
 
 	async create(dto: CategoryDto) {

@@ -4,6 +4,7 @@ import { IBase } from './root.types'
 export interface ICategory extends IBase {
 	name: string
 	menuId: number
+	type: string
 	products?: IProduct[]
 }
 

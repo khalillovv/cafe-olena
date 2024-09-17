@@ -12,7 +12,7 @@ import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { Field, Title } from '@/components'
 import { authService } from '@/services/auth.service'
 
-export function Auth() {
+export function Admin() {
 	const { register, handleSubmit, reset } = useForm<IAuthForm>({
 		mode: 'onChange',
 	})
@@ -36,9 +36,9 @@ export function Auth() {
 	}
 
 	return (
-		<div className='flex min-h-screen'>
+		<div className='flex min-h-screen '>
 			<form
-				className='w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout'
+				className='w-1/4 m-auto shadow rounded-xl p-[48px] bg-gray'
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<Title title='Auth' />
@@ -66,7 +66,12 @@ export function Auth() {
 				/>
 
 				<div className='flex items-center gap-5 justify-center'>
-					<button onClick={() => setIsLoginForm(true)}>Login</button>
+					<button
+						className='border p-3 bg-white rounded-2xl w-6/12'
+						onClick={() => setIsLoginForm(true)}
+					>
+						Login
+					</button>
 				</div>
 			</form>
 		</div>

@@ -7,7 +7,5 @@ export function useMenu() {
 		queryFn: () => menuService.getMenu(),
 	})
 
-	console.log(data)
-
 	return { menu: data }
 }
