@@ -18,6 +18,7 @@ export const DesktopContent: React.FC<Props> = ({ className }) => {
 			<div className={styles.menu}>
 				<DesktopMenu />
 			</div>
+			{/* TODO: Скрыть при адаптации */}
 			<div className={styles.information}>
 				<DesktopInformation className='mt-2' />
 			</div>
