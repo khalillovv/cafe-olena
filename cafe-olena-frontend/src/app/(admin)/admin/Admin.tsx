@@ -36,7 +36,7 @@ export function Admin() {
 	}
 
 	return (
-		<div className='flex min-h-screen '>
+		<div className='mt-16'>
 			<form
 				className='w-1/4 m-auto shadow rounded-xl p-[48px] bg-gray'
 				onSubmit={handleSubmit(onSubmit)}
