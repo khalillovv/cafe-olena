@@ -35,21 +35,3 @@ export const DesktopCategories: React.FC<Props> = ({ className }) => {
 		</div>
 	)
 }
-
-// {menu &&
-// 	menu.map(item => (
-// 		<AccordionItem key={item.id} value={item.id} className='w-full'>
-// 			<AccordionTrigger>{item.name}</AccordionTrigger>
-// 			{item.categories && item.categories.length > 0 ? (
-// 				item.categories.map(category => (
-// 					<AccordionContent key={category.id}>
-// 						{category.products?.map(product => (
-// 							<p key={product.id}>{product.name}</p>
-// 						))}
-// 					</AccordionContent>
-// 				))
-// 			) : (
-// 				<AccordionContent>Нет категорий</AccordionContent>
-// 			)}
-// 		</AccordionItem>
-// 	))}

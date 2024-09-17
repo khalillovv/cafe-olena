@@ -1,6 +1,3 @@
-import { Container, Footer, Header } from '@/components'
-import { SITE_NAME } from '@/constants/seo.constants'
-import type { Metadata } from 'next'
 import { Great_Vibes, Roboto_Slab } from 'next/font/google'
 import './globals.scss'
 import { Providers } from './providers'
@@ -21,14 +18,6 @@ const vibes = Great_Vibes({
 	style: ['normal'],
 })
 
-export const metadata: Metadata = {
-	title: {
-		default: SITE_NAME,
-		template: `%s | ${SITE_NAME}`,
-	},
-	description: 'Best one for planning',
-}
-
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -40,11 +29,7 @@ export default function RootLayout({
 				<link data-rh='true' rel='icon' href='/logo.png' />
 			</head>
 			<body className={`${zen.className} ${vibes.variable}`}>
-				<Providers>
-					<Header />
-					<Container>{children}</Container>
-					<Footer />
-				</Providers>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	)
