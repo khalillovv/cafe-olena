@@ -8,7 +8,7 @@ import {
 	ParseIntPipe,
 	Post,
 } from '@nestjs/common'
-import { Auth } from 'src/auth/decorators/auth.decorator'
+import { Auth } from '../auth/decorators/auth.decorator'
 import { MenuDto } from './dto/menu.dto'
 import { MenuService } from './menu.service'
 
