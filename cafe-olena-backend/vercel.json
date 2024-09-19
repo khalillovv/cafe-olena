@@ -3,15 +3,9 @@
 	"builds": [
 		{
 			"src": "src/main.ts",
-			"use": "@vercel/node",
-			"config": {
-				"includeFiles": ["prisma/schema.prisma"]
-			}
+			"use": "@vercel/node"
 		}
 	],
-	"hooks": {
-		"postbuild": "prisma generate"
-	},
 	"routes": [
 		{
 			"src": "/(.*)",
