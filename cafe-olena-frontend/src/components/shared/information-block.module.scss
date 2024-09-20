@@ -4,6 +4,10 @@
 	margin-bottom: 16px;
 	transition: color 0.3s ease-in-out;
 
+	@media (max-width: 768px) {
+		align-items: center;
+	}
+
 	&:hover {
 		color: hsl(var(--primary));
 		cursor: pointer;
@@ -28,6 +32,10 @@
 		font-size: 14px;
 		font-weight: 700;
 		line-height: 21px;
+
+		@media (max-width: 768px) {
+			font-weight: 400;
+		}
 	}
 }
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import styles from './information-block.module.scss'
 interface Props {
-	icon: React.ElementType
+	icon?: React.ElementType
 	title?: string
 	text: string
 	href: string
@@ -29,9 +29,11 @@ export const InformationBlock: React.FC<Props> = ({
 				hasDrawer ? styles.drawer_block : styles.information_block
 			)}
 		>
-			<div className={styles.icon}>
-				<IconComponent className='w-6 h-6' />
-			</div>
+			{IconComponent && (
+				<div className={styles.icon}>
+					<IconComponent className='w-6 h-6' />
+				</div>
+			)}
 			<div
 				className={cn(
 					hasDrawer ? styles.drawer_block__info : styles.information_block__info

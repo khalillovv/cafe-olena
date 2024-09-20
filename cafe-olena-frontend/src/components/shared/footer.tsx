@@ -13,12 +13,12 @@ export const Footer: React.FC<Props> = ({ className }) => {
 	return (
 		<footer className={cn(styles.footer, className)}>
 			<Container className={styles.container}>
-				<div className='w-[50%]'>
+				<div className='w-[50%] max-md:w-full'>
 					<Title
 						className='text-[16px] leading-[24px] font-bold mb-2'
 						title='Контактні дані'
 					/>
-					<div className='max-w-[372px] flex flex-col'>
+					<div className='md:max-w-[372px] flex flex-col'>
 						<a
 							target='_blank'
 							className='mb-2 transition-all hover:text-primary'
@@ -35,14 +35,15 @@ export const Footer: React.FC<Props> = ({ className }) => {
 						</a>
 					</div>
 				</div>
-				<div className='w-[50%]'>
+				<div className='w-[50%] max-md:w-full'>
 					<Title
 						className='text-[16px] leading-[24px] font-bold mb-2'
 						title='На карті'
 					/>
 					<iframe
+						className={styles.map}
 						src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d342.75480408862666!2d30.789933!3d46.5864776!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6250e56501987%3A0xe68393bee2647e88!2z0JHQsNGAINCV0LvQtdC90LA!5e0!3m2!1sru!2sua!4v1726406116117!5m2!1sru!2sua'
-						width='500'
+						width='100%'
 						height='200'
 						style={{ border: 0, marginBottom: 16 }}
 						allowFullScreen
@@ -63,7 +64,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
 			</Container>
 			<div className='border border-border py-5'>
 				<Container>
-					<p className='text-[12px]'>
+					<p className='text-[12px] ml-2.5'>
 						&copy; {new Date().getFullYear()} Кафе-Бар Олена
 					</p>
 				</Container>

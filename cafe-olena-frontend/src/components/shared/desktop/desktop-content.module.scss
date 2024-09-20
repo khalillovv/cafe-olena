@@ -35,4 +35,8 @@
 	top: 112px;
 	height: calc(100vh - 112px);
 	overflow-y: auto;
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
 }

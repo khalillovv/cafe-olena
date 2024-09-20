@@ -1,4 +1,4 @@
-import { Container, Footer } from '@/components'
+import { Container, Footer, Header } from '@/components'
 import { SITE_NAME } from '@/constants/seo.constants'
 import type { Metadata } from 'next'
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 		default: SITE_NAME,
 		template: `%s | ${SITE_NAME}`,
 	},
-	description: 'Best one for planning',
+	description: 'Кафе-бар Олена',
 }
 
 export default function HomeLayout({
@@ -17,6 +17,7 @@ export default function HomeLayout({
 }>) {
 	return (
 		<main className='min-h-screen'>
+			<Header />
 			<Container>{children}</Container>
 			<Footer />
 		</main>
