@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 	description: 'Кафе-бар Олена',
 }
 
-export default function HomeLayout({
+export default function OnlineMenuLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
 }>) {
 	return (
-		<main className='min-h-screen'>
+		<div className='flex flex-col min-h-screen'>
 			<Header />
-			<Container>{children}</Container>
+			<main className='flex-grow'>
+				<Container>{children}</Container>
+			</main>
 			<Footer />
-		</main>
+		</div>
 	)
 }

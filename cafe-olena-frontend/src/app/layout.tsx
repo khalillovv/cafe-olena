@@ -28,7 +28,9 @@ export default function RootLayout({
 			<head>
 				<link data-rh='true' rel='icon' href='/logo.png' />
 			</head>
-			<body className={`${zen.className} ${vibes.variable}`}>
+			<body
+				className={`${zen.className} ${vibes.variable} flex flex-col min-h-screen`}
+			>
 				<Providers>{children}</Providers>
 			</body>
 		</html>

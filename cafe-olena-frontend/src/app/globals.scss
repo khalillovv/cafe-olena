@@ -76,6 +76,14 @@ html {
 	font-family: var(--font-zen), sans-serif;
 }
 
+.olena {
+	font-family: var(--font-vibes);
+	font-weight: 400;
+	margin-left: 4px;
+	color: hsl(var(--background));
+	font-size: 48px;
+}
+
 .scrollbar::-webkit-scrollbar {
 	width: 4px;
 }

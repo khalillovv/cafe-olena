@@ -17,15 +17,15 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ hasAdminPage, className }) => {
 	return (
-		<div className={cn(styles.header, className)}>
+		<header className={cn(styles.header, className)}>
 			<Container className='flex items-center justify-between max-md:bg-gray'>
 				<Link className='hidden max-md:block p-4' href='/'>
 					<ArrowLeft />
 				</Link>
 				<Link className='flex items-center p-[14px] max-md:hidden' href='/'>
 					<Image src='/logo.png' width='80' height='80' alt='logo' />
-					<Title className='ml-4 font-[300]' title='Кафе-Бар' />
-					<Title className={styles.olena} title='Олена' />
+					<Title className='ml-4 font-light' title='Кафе-Бар' />
+					<Title className='olena' title='Олена' />
 				</Link>
 				{!hasAdminPage && (
 					<div className='flex flex-row items-center gap-6 mr-8 p-4'>
@@ -35,6 +35,6 @@ export const Header: React.FC<Props> = ({ hasAdminPage, className }) => {
 					</div>
 				)}
 			</Container>
-		</div>
+		</header>
 	)
 }

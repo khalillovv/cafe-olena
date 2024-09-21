@@ -16,9 +16,11 @@ export default function HomeLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<main className='min-h-screen'>
-			<Container>{children}</Container>
+		<div className='flex flex-col min-h-screen'>
+			<main className='flex-grow max-md:bg-gray'>
+				<Container>{children}</Container>
+			</main>
 			<Footer />
-		</main>
+		</div>
 	)
 }
