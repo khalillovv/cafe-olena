@@ -1,9 +1,10 @@
 'use client'
 import { cn } from '@/lib/utils'
-import { LinkIcon } from 'lucide-react'
+import { LinkIcon, MapPinnedIcon, Phone } from 'lucide-react'
 import React from 'react'
 import { Container } from './container'
 import styles from './footer.module.scss'
+import { InformationBlock } from './information-block'
 import { Title } from './title'
 
 interface Props {
@@ -19,7 +20,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
 						className='text-[16px] leading-[24px] font-bold mb-2'
 						title='Контактні дані'
 					/>
-					<div className='md:max-w-[372px] flex flex-col'>
+					<div className='md:max-w-[372px] flex flex-col max-md:hidden'>
 						<a
 							target='_blank'
 							className='mb-2 transition-all hover:text-primary'
@@ -34,6 +35,19 @@ export const Footer: React.FC<Props> = ({ className }) => {
 						>
 							+380984027902
 						</a>
+					</div>
+					<div className='hidden flex-col max-md:flex'>
+						<InformationBlock
+							icon={MapPinnedIcon}
+							text='проспект Добровольського, 129,б, Одеса, Одеська область, 65000'
+							href='https://maps.app.goo.gl/Z9f61yd9upu8JCcr6'
+						/>
+						<InformationBlock
+							className='max-md:items-center'
+							icon={Phone}
+							text='+380984027902'
+							href='tel:+380984027902'
+						/>
 					</div>
 				</div>
 				<div className='w-[50%] max-md:w-full'>
