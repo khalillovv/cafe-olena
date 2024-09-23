@@ -1,7 +1,13 @@
 .productsGroupList {
 	border: 2px solid hsl(var(--border));
-	border-radius: 16px;
+	border-radius: 20px;
 	margin-bottom: 14px;
+
+	@media (max-width: 768px) {
+		border: 0px;
+		border-radius: 0;
+		margin-bottom: 0;
+	}
 
 	.title {
 		background: hsl(var(--gray));
@@ -12,5 +18,11 @@
 		border-bottom: 2px solid hsl(var(--border));
 
 		text-transform: uppercase;
+
+		@media (max-width: 768px) {
+			text-align: start;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
 	}
 }

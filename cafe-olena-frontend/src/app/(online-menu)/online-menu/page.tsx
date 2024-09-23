@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { DesktopContent } from '@/components'
+import { DesktopContent, MobileContent } from '@/components'
 import { NO_INDEX_PAGE } from '@/constants/seo.constants'
 
 export const metadata: Metadata = {
@@ -14,7 +14,9 @@ export default function MenuPage() {
 			<div className='hidden md:block'>
 				<DesktopContent />
 			</div>
-			<div className='block md:hidden'>телефон</div>
+			<div className='block md:hidden'>
+				<MobileContent />
+			</div>
 		</>
 	)
 }

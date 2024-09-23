@@ -9,13 +9,13 @@ interface Props {
 	className?: string
 }
 
-export const MenuChoiceButton: React.FC<Props> = ({ title, className }) => {
+export const HomeMenuButton: React.FC<Props> = ({ title, className }) => {
 	return (
 		// TODO: сделать правильную ссылку
 		<Link href={'/online-menu'}>
 			<div
 				className={cn(
-					'flex flex-row items-center justify-between px-4 py-3 bg-white rounded-sm shadow-md mb-2',
+					'flex flex-row items-center justify-between px-4 py-4 bg-white rounded-sm shadow-md mb-2',
 					className
 				)}
 			>

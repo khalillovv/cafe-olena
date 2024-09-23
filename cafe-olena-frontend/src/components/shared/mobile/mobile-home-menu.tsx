@@ -1,13 +1,13 @@
 import { useMenu } from '@/lib/useMenu'
 import { cn } from '@/lib/utils'
 import React from 'react'
-import { MenuChoiceButton } from '../menu-choice-button'
+import { HomeMenuButton } from '../home-menu-button'
 
 interface Props {
 	className?: string
 }
 
-export const MobileMenuChoice: React.FC<Props> = ({ className }) => {
+export const MobileHomeMenu: React.FC<Props> = ({ className }) => {
 	const { menu } = useMenu()
 	return (
 		<div className={cn('bg-gray p-4', className)}>
@@ -18,9 +18,7 @@ export const MobileMenuChoice: React.FC<Props> = ({ className }) => {
 			</div>
 			<div>
 				{menu &&
-					menu.map(item => (
-						<MenuChoiceButton key={item.id} title={item.name} />
-					))}
+					menu.map(item => <HomeMenuButton key={item.id} title={item.name} />)}
 			</div>
 		</div>
 	)

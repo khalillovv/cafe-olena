@@ -1,7 +1,5 @@
 'use client'
-import { Skeleton } from '@/components'
-import { MobileHeader } from '@/components/shared/mobile'
-import { MobileMenuChoice } from '@/components/shared/mobile/mobile-menu-choice'
+import { MobileHeader, MobileHomeMenu, Skeleton } from '@/components'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -21,7 +19,7 @@ export default function Home() {
 			</div>
 			<div className='block md:hidden'>
 				<MobileHeader />
-				<MobileMenuChoice className='flex-grow' />
+				<MobileHomeMenu className='flex-grow' />
 			</div>
 		</main>
 	)
