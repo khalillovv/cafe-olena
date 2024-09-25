@@ -10,7 +10,7 @@ interface Props {
 
 export const MobileMenuSection: React.FC<Props> = ({ className }) => {
 	return (
-		<div className={cn('', className)}>
+		<div className={cn('border border-border', className)}>
 			<div className='sticky top-0 z-10'>
 				<MobileCategories />
 			</div>

@@ -27,7 +27,7 @@ html {
 		--primary-foreground: 355.7 100% 97.3%;
 		--secondary: 240 4.8% 95.9%;
 		--secondary-foreground: 240 5.9% 10%;
-		--muted: 240 4.8% 95.9%;
+		--muted: 240 4.8% 92.9%;
 		--muted-foreground: 240 3.8% 46.1%;
 		--accent: 240 4.8% 95.9%;
 		--accent-foreground: 240 5.9% 10%;
@@ -82,6 +82,16 @@ html {
 	margin-left: 4px;
 	color: hsl(var(--background));
 	font-size: 48px;
+}
+
+.scrollbar-hidden {
+	overflow-x: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+	display: none;
 }
 
 .scrollbar::-webkit-scrollbar {

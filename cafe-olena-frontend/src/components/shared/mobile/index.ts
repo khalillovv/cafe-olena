@@ -1,4 +1,5 @@
 export { MobileCategories } from './mobile-categories'
+export { MobileCategoriesItem } from './mobile-categories-item'
 export { MobileContent } from './mobile-content'
 export { MobileHeader } from './mobile-header'
 export { MobileHomeMenu } from './mobile-home-menu'
