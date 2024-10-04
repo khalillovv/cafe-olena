@@ -15,7 +15,13 @@ export const MobileHeader: React.FC<Props> = ({ className }) => {
 				className
 			)}
 		>
-			<Image src='/logo.png' width='60' height='60' alt='logo' />
+			<Image
+				className='rounded-sm'
+				src='/logo.png'
+				width='60'
+				height='60'
+				alt='logo'
+			/>
 			<div className='flex flex-col ml-4'>
 				<div className='flex flex-row'>
 					<Title className='font-light' title='Кафе-Бар' />

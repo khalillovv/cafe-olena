@@ -5,7 +5,7 @@ import { Skeleton } from '../ui'
 import styles from './product-card.module.scss'
 
 interface Props {
-	id: string
+	id: number
 	name: string
 	price: string
 	ingredients?: string

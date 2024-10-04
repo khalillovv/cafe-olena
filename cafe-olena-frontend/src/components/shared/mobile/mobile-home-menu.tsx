@@ -21,7 +21,7 @@ export const MobileHomeMenu: React.FC<Props> = ({ className }) => {
 			</div>
 			<div>
 				{menu
-					? menu.map(item => <HomeMenuButton key={item.id} title={item.name} />)
+					? menu.map(item => <HomeMenuButton key={item.id} id={item.id} title={item.name} />)
 					: Array.from({ length: 2 }).map((_, index) => (
 							<Skeleton key={index} className='w-[398px] h-16 mb-2' />
 					  ))}

@@ -25,7 +25,13 @@ export const Header: React.FC<Props> = ({ hasAdminPage, className }) => {
 					</div>
 				</Link>
 				<Link className='flex items-center p-[14px] max-md:hidden' href='/'>
-					<Image src='/logo.png' width='80' height='80' alt='logo' />
+					<Image
+						className='rounded-sm'
+						src='/logo.png'
+						width='80'
+						height='80'
+						alt='logo'
+					/>
 					<Title className='ml-4 font-light' title='Кафе-Бар' />
 					<Title className='olena' title='Олена' />
 				</Link>

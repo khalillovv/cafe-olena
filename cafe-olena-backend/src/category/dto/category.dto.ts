@@ -4,6 +4,7 @@ export class CategoryDto {
 	@IsString()
 	name: string
 
+	@IsOptional()
 	@IsNumber()
 	menuId: number
 

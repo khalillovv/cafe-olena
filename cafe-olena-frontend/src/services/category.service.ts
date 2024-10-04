@@ -4,8 +4,10 @@ import { ICategory, TypeCategoryFormState } from '@/types/category.types'
 class CategoryService {
 	private BASE_URL = '/category'
 
-	async getCategory() {
-		const response = await axiosWithAuth.get<ICategory[]>(this.BASE_URL)
+	async getCategories(menuId?: number) {
+		const response = await axiosWithAuth.get<ICategory[]>(this.BASE_URL, {
+			params: menuId ? { menuId } : {}, // Передаем menuId как параметр запроса
+		})
 		return response.data
 	}
 

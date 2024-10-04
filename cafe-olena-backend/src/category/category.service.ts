@@ -6,8 +6,11 @@ import { CategoryDto } from './dto/category.dto'
 export class CategoryService {
 	constructor(private prisma: PrismaService) {}
 
-	async getAll() {
+	async getAll(menuId?: number) {
 		return this.prisma.category.findMany({
+			where: {
+				menuId: menuId ? menuId : undefined,
+			},
 			include: {
 				products: true,
 			},

@@ -4,7 +4,7 @@ import { IMenu, TypeMenuFormState } from '@/types/menu.types'
 class MenuService {
 	private BASE_URL = '/menu'
 
-	async getMenu() {
+	async getAll() {
 		const response = await axiosWithAuth.get<IMenu[]>(this.BASE_URL)
 		return response.data
 	}

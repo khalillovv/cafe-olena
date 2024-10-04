@@ -5,14 +5,14 @@ import React from 'react'
 import { Title } from './title'
 
 interface Props {
+	id: number
 	title: string
 	className?: string
 }
 
-export const HomeMenuButton: React.FC<Props> = ({ title, className }) => {
+export const HomeMenuButton: React.FC<Props> = ({ id, title, className }) => {
 	return (
-		// TODO: сделать правильную ссылку
-		<Link href={'/online-menu'}>
+		<Link href={`/online-menu?menuId=${id}`}>
 			<div
 				className={cn(
 					'flex flex-row items-center justify-between px-4 py-4 bg-white rounded-sm shadow-md mb-2',

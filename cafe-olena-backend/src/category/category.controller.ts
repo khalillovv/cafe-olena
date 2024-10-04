@@ -7,6 +7,7 @@ import {
 	Param,
 	ParseIntPipe,
 	Post,
+	Query,
 } from '@nestjs/common'
 import { Auth } from '../auth/decorators/auth.decorator'
 import { CategoryService } from './category.service'
@@ -17,8 +18,8 @@ export class CategoryController {
 	constructor(private readonly categoryService: CategoryService) {}
 
 	@Get()
-	async getAll() {
-		return this.categoryService.getAll()
+	async getAll(@Query('menuId') menuId?: number) {
+		return this.categoryService.getAll(menuId ? Number(menuId) : undefined)
 	}
 
 	@Post()

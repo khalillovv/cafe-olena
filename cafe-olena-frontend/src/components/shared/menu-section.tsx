@@ -1,7 +1,6 @@
 'use client'
-import { useCategories } from '@/lib/useCategories'
+import { useMenuData, useQueryParams } from '@/hooks'
 import { cn } from '@/lib/utils'
-import React from 'react'
 import { ProductsGroupList } from './products-group-list'
 
 interface Props {
@@ -9,27 +8,30 @@ interface Props {
 }
 
 export const MenuSection: React.FC<Props> = ({ className }) => {
-	const { categories, isLoading } = useCategories()
+	const { menuId } = useQueryParams()
+	const { categories, categoriesLoading } = useMenuData(menuId)
 
-	const filteredCategories = categories?.filter(
-		category => category.menuId === 1
-	)
+	if (categoriesLoading) {
+		return (
+			<div className='bg-white'>
+				{Array.from({ length: 4 }).map((_, index) => (
+					<ProductsGroupList key={index} title='' categoryId={0} isLoading />
+				))}
+			</div>
+		)
+	}
 
 	return (
 		<div className={cn('bg-white', className)}>
-			{categories
-				? filteredCategories?.map(category => (
-						<ProductsGroupList
-							key={category.id}
-							title={category.name}
-							categoryId={category.id}
-							items={category.products}
-							type={category.type}
-						/>
-				  ))
-				: Array.from({ length: 4 }).map((_, index) => (
-						<ProductsGroupList key={index} title='' isLoading />
-				  ))}
+			{categories?.map(category => (
+				<ProductsGroupList
+					key={category.id}
+					title={category.name}
+					categoryId={category.id}
+					items={category.products}
+					type={category.type}
+				/>
+			))}
 		</div>
 	)
 }
