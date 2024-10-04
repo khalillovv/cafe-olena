@@ -1,4 +1,5 @@
 import { Great_Vibes, Roboto_Slab } from 'next/font/google'
+import { Suspense } from 'react'
 import './globals.scss'
 import { Providers } from './providers'
 
@@ -31,7 +32,9 @@ export default function RootLayout({
 			<body
 				className={`${zen.className} ${vibes.variable} flex flex-col min-h-screen`}
 			>
-				<Providers>{children}</Providers>
+				<Suspense>
+					<Providers>{children}</Providers>
+				</Suspense>
 			</body>
 		</html>
 	)
