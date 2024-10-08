@@ -8,6 +8,7 @@ import {
 	ParseIntPipe,
 	Post,
 	Put,
+	Query,
 	UsePipes,
 	ValidationPipe,
 } from '@nestjs/common'
@@ -22,6 +23,11 @@ export class ProductController {
 	@Get()
 	async getAll() {
 		return this.productService.getAll()
+	}
+
+	@Get('search')
+	async search(@Query('value') value: string) {
+		return this.productService.search(value)
 	}
 
 	@Post()

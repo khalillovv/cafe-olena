@@ -12,10 +12,14 @@ import Link from 'next/link'
 import React from 'react'
 
 interface Props {
+	hasSearch?: boolean
 	className?: string
 }
 
-export const DesktopCategories: React.FC<Props> = ({ className }) => {
+export const DesktopCategories: React.FC<Props> = ({
+	hasSearch,
+	className,
+}) => {
 	const { menuId } = useQueryParams()
 	const { menu, menuLoading } = useMenuData(menuId)
 
@@ -36,12 +40,12 @@ export const DesktopCategories: React.FC<Props> = ({ className }) => {
 				type='single'
 				collapsible
 				className='w-full'
-				value={menuId ? `${menuId}` : undefined}
+				value={!hasSearch && menuId ? `${menuId}` : undefined}
 			>
 				{menu?.map(item => (
 					<AccordionItem key={item.id} value={`${item.id}`} className='w-full'>
 						<AccordionTrigger>
-							<Link href={`?menuId=${item.id}`}>{item.name}</Link>
+							<Link href={`/online-menu?menuId=${item.id}`}>{item.name}</Link>
 						</AccordionTrigger>
 						{item.categories &&
 							item.categories.length > 0 &&

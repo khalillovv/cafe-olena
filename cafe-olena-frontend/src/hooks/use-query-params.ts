@@ -6,6 +6,7 @@ export const useQueryParams = () => {
 	const searchParams = useSearchParams()
 	const menuId = Number(searchParams.get('menuId')) || menu?.[0].id
 	const categoryId = Number(searchParams.get('categoryId'))
+	const searchValue = searchParams.get('value')
 
 	const generateUrlWithParams = (newParams: Record<string, string>) => {
 		const params = new URLSearchParams(searchParams)
@@ -14,5 +15,5 @@ export const useQueryParams = () => {
 		})
 		return `?${params.toString()}`
 	}
-	return { menuId, categoryId, generateUrlWithParams }
+	return { menuId, categoryId, searchValue, generateUrlWithParams }
 }

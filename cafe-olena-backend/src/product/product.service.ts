@@ -7,7 +7,25 @@ export class ProductService {
 	constructor(private prisma: PrismaService) {}
 
 	async getAll() {
-		return this.prisma.product.findMany()
+		return this.prisma.product.findMany({
+			orderBy: {
+				id: 'asc',
+			},
+		})
+	}
+
+	async search(value: string) {
+		const products = await this.prisma.product.findMany({
+			orderBy: {
+				id: 'asc',
+			},
+		})
+
+		const filteredProducts = products.filter(product =>
+			product.name.toLowerCase().includes(value.toLowerCase())
+		)
+
+		return filteredProducts
 	}
 
 	async create(dto: ProductDto) {

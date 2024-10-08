@@ -1,5 +1,6 @@
+'use client'
 import { Skeleton } from '@/components/ui'
-import { useMenu } from '@/lib/useMenu'
+import { useMenuData } from '@/hooks'
 import { cn } from '@/lib/utils'
 import React from 'react'
 import { HomeMenuButton } from '../home-menu-button'
@@ -9,7 +10,7 @@ interface Props {
 }
 
 export const MobileHomeMenu: React.FC<Props> = ({ className }) => {
-	const { menu } = useMenu()
+	const { menu } = useMenuData()
 	return (
 		<div className={cn('bg-gray p-4', className)}>
 			<div className='flex flex-row justify-center items-center mb-2'>
@@ -21,7 +22,9 @@ export const MobileHomeMenu: React.FC<Props> = ({ className }) => {
 			</div>
 			<div>
 				{menu
-					? menu.map(item => <HomeMenuButton key={item.id} id={item.id} title={item.name} />)
+					? menu.map(item => (
+							<HomeMenuButton key={item.id} id={item.id} title={item.name} />
+					  ))
 					: Array.from({ length: 2 }).map((_, index) => (
 							<Skeleton key={index} className='w-[398px] h-16 mb-2' />
 					  ))}

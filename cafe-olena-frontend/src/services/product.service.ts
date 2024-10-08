@@ -5,8 +5,20 @@ class ProductService {
 	private BASE_URL = '/product'
 
 	async getProduct() {
-		const response = await axiosWithAuth.get<IProduct>(this.BASE_URL)
-		return response
+		const response = await axiosWithAuth.get<IProduct[]>(this.BASE_URL)
+		return response.data
+	}
+
+	async searchProduct(value: string) {
+		const response = await axiosWithAuth.get<IProduct[]>(
+			`${this.BASE_URL}/search`,
+			{
+				params: {
+					value,
+				},
+			}
+		)
+		return response.data
 	}
 
 	async createProduct(data: TypeProductFormState) {

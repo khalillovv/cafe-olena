@@ -1,6 +1,7 @@
 'use client'
 import { cn } from '@/lib/utils'
 import { LinkIcon, MapPinnedIcon, Phone } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import { Container } from './container'
 import styles from './footer.module.scss'
@@ -12,6 +13,13 @@ interface Props {
 }
 
 export const Footer: React.FC<Props> = ({ className }) => {
+	const pathname = usePathname()
+	const isSearchPage = pathname === '/search'
+
+	if (isSearchPage) {
+		return null
+	}
+
 	return (
 		<footer className={cn(styles.footer, className)}>
 			<Container className={styles.container}>
