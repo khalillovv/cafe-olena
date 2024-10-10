@@ -27,7 +27,7 @@ export const InfoDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 				<InformationBlock
 					hasDrawer
 					icon={MapPinnedIcon}
-					text='проспект Добровольського, 129,б, Одеса, Одеська область, 65000'
+					text='проспект Князя Володимира Великого, 129,б, Одеса, Одеська область, 65000'
 					href='https://maps.app.goo.gl/Z9f61yd9upu8JCcr6'
 				/>
 				<InformationBlock

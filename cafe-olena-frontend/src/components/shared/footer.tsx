@@ -15,8 +15,9 @@ interface Props {
 export const Footer: React.FC<Props> = ({ className }) => {
 	const pathname = usePathname()
 	const isSearchPage = pathname === '/search'
+	const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768
 
-	if (isSearchPage) {
+	if (isSearchPage && !isDesktop) {
 		return null
 	}
 
@@ -34,7 +35,8 @@ export const Footer: React.FC<Props> = ({ className }) => {
 							className='mb-2 transition-all hover:text-primary'
 							href='https://maps.app.goo.gl/Z9f61yd9upu8JCcr6'
 						>
-							проспект Добровольського, 129,б, Одеса, Одеська область, 65000
+							проспект Князя Володимира Великого, 129,б, Одеса, Одеська область,
+							65000
 						</a>
 						<a
 							target='_blank'
@@ -47,7 +49,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
 					<div className='hidden flex-col max-md:flex'>
 						<InformationBlock
 							icon={MapPinnedIcon}
-							text='проспект Добровольського, 129,б, Одеса, Одеська область, 65000'
+							text='проспект Князя Володимира Великого, 129,б, Одеса, Одеська область, 65000'
 							href='https://maps.app.goo.gl/Z9f61yd9upu8JCcr6'
 						/>
 						<InformationBlock

@@ -16,7 +16,7 @@ export const DesktopInformation: React.FC<Props> = ({ className }) => {
 			<InformationBlock
 				icon={MapPinnedIcon}
 				title='Адреса:'
-				text='проспект Добровольського, 129,б, Одеса, Одеська область, 65000'
+				text='проспект Князя Володимира Великого, 129,б, Одеса, Одеська область, 65000'
 				href='https://maps.app.goo.gl/Z9f61yd9upu8JCcr6'
 			/>
 			<InformationBlock

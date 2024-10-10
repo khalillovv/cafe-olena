@@ -28,7 +28,7 @@ export const MobileHeader: React.FC<Props> = ({ className }) => {
 					<Title className='olena' title='Олена' />
 				</div>
 				<p className='text-grayDark text-[12px] font-normal'>
-					проспект Добровольського, 129,б, Одеса
+					проспект Князя Володимира Великого, 129,б, Одеса,
 				</p>
 			</div>
 		</div>

@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const MobileSearchContent: React.FC<Props> = ({ className }) => {
-	// TODO: не работает
 	const { searchValue } = useQueryParams()
 	const { products, isLoading } = useProducts(searchValue || undefined)
 

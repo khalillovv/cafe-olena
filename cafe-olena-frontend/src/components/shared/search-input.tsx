@@ -2,7 +2,7 @@
 
 import { CircleX, Search } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useClickAway, useDebounce } from 'react-use'
 import { cn } from '../../lib/utils'
 
@@ -19,22 +19,44 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 	const searchParams = useSearchParams()
 	const pathname = usePathname()
 
+	const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768
+
 	useClickAway(ref, () => {
 		setFocused(false)
 	})
 
+	useEffect(() => {
+		if (pathname === '/online-menu') {
+			setSearchQuery('')
+		}
+	}, [pathname])
+
 	useDebounce(
 		() => {
-			if (pathname === '/search') {
+			if (isDesktop) {
 				const newParams = new URLSearchParams(searchParams as any)
 
-				if (searchQuery) {
-					newParams.set('value', searchQuery)
-				} else {
-					newParams.delete('value')
-				}
+				if (pathname === '/online-menu' && searchQuery) {
+					router.replace(`/search?value=${searchQuery}`)
+				} else if (pathname === '/search') {
+					if (searchQuery) {
+						newParams.set('value', searchQuery)
+					}
 
-				router.replace(`/search?${newParams.toString()}`)
+					router.replace(`/search?${newParams.toString()}`)
+				}
+			} else {
+				if (pathname === '/search') {
+					const newParams = new URLSearchParams(searchParams as any)
+
+					if (searchQuery) {
+						newParams.set('value', searchQuery)
+					} else {
+						newParams.delete('value')
+					}
+
+					router.replace(`/search?${newParams.toString()}`)
+				}
 			}
 		},
 		250,
