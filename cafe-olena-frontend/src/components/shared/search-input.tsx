@@ -2,8 +2,8 @@
 
 import { CircleX, Search } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect } from 'react'
-import { useClickAway, useDebounce } from 'react-use'
+import React, { useEffect, useRef } from 'react'
+import { useClickAway } from 'react-use'
 import { cn } from '../../lib/utils'
 
 interface Props {
@@ -14,6 +14,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 	const [searchQuery, setSearchQuery] = React.useState('')
 	const [focused, setFocused] = React.useState(false)
 	const ref = React.useRef(null)
+	const inputTimeout = useRef<NodeJS.Timeout | null>(null)
 
 	const router = useRouter()
 	const searchParams = useSearchParams()
@@ -25,43 +26,56 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 		setFocused(false)
 	})
 
+	// Очистка поискового запроса при возврате на /online-menu
 	useEffect(() => {
 		if (pathname === '/online-menu') {
 			setSearchQuery('')
 		}
 	}, [pathname])
 
-	useDebounce(
-		() => {
+	// Функция для обработки поискового запроса с таймером
+	const handleSearch = (query: string) => {
+		if (inputTimeout.current) {
+			clearTimeout(inputTimeout.current)
+		}
+
+		inputTimeout.current = setTimeout(() => {
+			// Логика для десктопа
 			if (isDesktop) {
-				const newParams = new URLSearchParams(searchParams as any)
-
-				if (pathname === '/online-menu' && searchQuery) {
-					router.replace(`/search?value=${searchQuery}`)
-				} else if (pathname === '/search') {
-					if (searchQuery) {
-						newParams.set('value', searchQuery)
-					}
-
-					router.replace(`/search?${newParams.toString()}`)
+				if (query) {
+					// Перенаправление на /search с параметром value
+					router.push(`/search?value=${encodeURIComponent(query)}`)
+				} else if (!query && pathname === '/search') {
+					// Если запрос очищен, вернуться на /online-menu
+					router.push('/online-menu')
 				}
 			} else {
-				if (pathname === '/search') {
-					const newParams = new URLSearchParams(searchParams as any)
+				// Логика для мобильной версии
+				const newParams = new URLSearchParams(searchParams as any)
 
-					if (searchQuery) {
-						newParams.set('value', searchQuery)
-					} else {
-						newParams.delete('value')
-					}
-
-					router.replace(`/search?${newParams.toString()}`)
+				if (query) {
+					newParams.set('value', query)
+				} else {
+					newParams.delete('value')
 				}
+
+				router.replace(`/search?${newParams.toString()}`)
 			}
-		},
-		250,
-		[searchQuery, pathname]
-	)
+		}, 500) // Задержка 500 мс
+	}
+
+	// Обновление поискового запроса
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const query = e.target.value
+		setSearchQuery(query)
+		handleSearch(query)
+	}
+
+	// Очистка поля поиска и редирект на /online-menu
+	const handleClearSearch = () => {
+		setSearchQuery('') // Очищаем поле
+		handleSearch('') // Вызываем функцию для перенаправления на /online-menu
+	}
 
 	return (
 		<div
@@ -83,11 +97,11 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 				placeholder='Пошук'
 				onFocus={() => setFocused(true)}
 				value={searchQuery}
-				onChange={e => setSearchQuery(e.target.value)}
+				onChange={handleInputChange}
 			/>
 			{searchQuery && (
 				<CircleX
-					onClick={() => setSearchQuery('')}
+					onClick={handleClearSearch}
 					width={24}
 					height={24}
 					className='mx-2 text-red hover:cursor-pointer'
