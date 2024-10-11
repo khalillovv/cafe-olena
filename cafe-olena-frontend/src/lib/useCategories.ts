@@ -7,5 +7,9 @@ export function useCategories(menuId?: number) {
 		queryFn: () => categoryService.getCategories(menuId),
 	})
 
-	return { categories: data, isLoading, error }
+	const filteredCategories = data?.filter(
+		category => category.products && category.products.length > 0
+	)
+
+	return { categories: data, filteredCategories, isLoading, error }
 }

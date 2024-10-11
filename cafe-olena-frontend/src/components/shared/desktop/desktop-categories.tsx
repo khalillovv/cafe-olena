@@ -34,6 +34,7 @@ export const DesktopCategories: React.FC<Props> = ({
 			</div>
 		)
 	}
+
 	return (
 		<div className={cn('w-[272px] mb-4', className)}>
 			<Accordion
@@ -47,13 +48,20 @@ export const DesktopCategories: React.FC<Props> = ({
 						<AccordionTrigger>
 							<Link href={`/online-menu?menuId=${item.id}`}>{item.name}</Link>
 						</AccordionTrigger>
-						{item.categories &&
-							item.categories.length > 0 &&
-							item.categories.map(category => (
-								<AccordionContent key={category.id}>
-									{category.name}
-								</AccordionContent>
-							))}
+						{item.categories && item.categories.length > 0 && (
+							<>
+								{item.categories
+									.filter(
+										category =>
+											category.products && category.products.length > 0
+									)
+									.map(category => (
+										<AccordionContent key={category.id}>
+											{category.name}
+										</AccordionContent>
+									))}
+							</>
+						)}
 					</AccordionItem>
 				))}
 			</Accordion>

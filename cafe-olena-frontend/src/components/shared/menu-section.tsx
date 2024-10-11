@@ -9,7 +9,7 @@ interface Props {
 
 export const MenuSection: React.FC<Props> = ({ className }) => {
 	const { menuId } = useQueryParams()
-	const { categories, categoriesLoading } = useMenuData(menuId)
+	const { filteredCategories, categoriesLoading } = useMenuData(menuId)
 
 	if (categoriesLoading) {
 		return (
@@ -23,13 +23,12 @@ export const MenuSection: React.FC<Props> = ({ className }) => {
 
 	return (
 		<div className={cn('bg-white', className)}>
-			{categories?.map(category => (
+			{filteredCategories?.map(category => (
 				<ProductsGroupList
 					key={category.id}
 					title={category.name}
 					categoryId={category.id}
 					items={category.products}
-					type={category.type}
 				/>
 			))}
 		</div>

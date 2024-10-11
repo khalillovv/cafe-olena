@@ -36,7 +36,6 @@ model Category {
   products Product[]
   menu     Menu      @relation(fields: [menuId], references: [id])
   menuId   Int
-  type     String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -50,6 +49,7 @@ model Product {
   ingredients String?
   price       String
   grams       String?
+  gramsType   String?
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  Int
 

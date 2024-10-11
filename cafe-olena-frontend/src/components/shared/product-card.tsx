@@ -41,8 +41,8 @@ export const ProductCard: React.FC<Props> = ({
 					<Skeleton className='w-12 h-4' />
 				) : (
 					<>
-						{type === 'menu' && <Scale width={16} height={16} />}
-						{type === 'bar' && <GlassWater width={16} height={16} />}
+						{type === 'gram' && <Scale width={16} height={16} />}
+						{type === 'liter' && <GlassWater width={16} height={16} />}
 						{grams}
 					</>
 				)}

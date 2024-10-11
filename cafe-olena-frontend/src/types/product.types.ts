@@ -5,6 +5,7 @@ export interface IProduct extends IBase {
 	ingredients?: string
 	price: string
 	grams?: string
+	gramsType?: string
 	categoryId: number
 }
 

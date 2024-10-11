@@ -11,7 +11,7 @@ interface Props {
 
 export const MobileMenuSelector: React.FC<Props> = ({ className }) => {
 	const { menuId } = useQueryParams()
-	const { menu, menuLoading } = useMenuData(menuId)
+	const { menu, menuLoading } = useMenuData()
 
 	if (menuLoading) {
 		return (

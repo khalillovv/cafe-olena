@@ -42,7 +42,6 @@ export class ProductController {
 	@Put(':id')
 	@Auth()
 	async update(
-		//TODO: Проверить будет ли правильно обновляться, будут ли оставаться остальные поля при обновлении
 		@Body() dto: Partial<ProductDto>,
 		@Param('id', ParseIntPipe) id: number
 	) {

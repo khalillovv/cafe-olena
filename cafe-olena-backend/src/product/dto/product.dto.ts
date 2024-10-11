@@ -15,6 +15,10 @@ export class ProductDto {
 	@IsOptional()
 	grams: string
 
+	@IsString()
+	@IsOptional()
+	gramsType: string
+
 	@IsNumber()
 	categoryId: number
 

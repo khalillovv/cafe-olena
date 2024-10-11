@@ -13,7 +13,7 @@ interface Props {
 export const MobileCategories: React.FC<Props> = ({ className }) => {
 	const categoryActiveId = useCategoryStore(state => state.activeId)
 	const { menuId } = useQueryParams()
-	const { categories, categoriesLoading } = useMenuData(menuId)
+	const { filteredCategories, categoriesLoading } = useMenuData(menuId)
 
 	if (categoriesLoading) {
 		return (
@@ -28,7 +28,7 @@ export const MobileCategories: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn('bg-white py-2 px-4', className)}>
 			<Slider>
-				{categories?.map(category => (
+				{filteredCategories?.map(category => (
 					<Link key={category.id} href={''}>
 						<button
 							className={cn(
