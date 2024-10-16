@@ -2,14 +2,12 @@
 
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { IAuthForm } from '@/types/auth.types'
 
-import { DASHBOARD_PAGES } from '@/config/pages-url.config'
-
 import { Field, Title } from '@/components'
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { authService } from '@/services/auth.service'
 
 export function Admin() {
@@ -17,14 +15,11 @@ export function Admin() {
 		mode: 'onChange',
 	})
 
-	const [isLoginForm, setIsLoginForm] = useState(false)
-
 	const { push } = useRouter()
 
 	const { mutate } = useMutation({
 		mutationKey: ['auth'],
-		mutationFn: (data: IAuthForm) =>
-			authService.main(isLoginForm ? 'login' : 'register', data),
+		mutationFn: (data: IAuthForm) => authService.main(data),
 		onSuccess() {
 			reset()
 			push(DASHBOARD_PAGES.HOME)
@@ -66,10 +61,7 @@ export function Admin() {
 				/>
 
 				<div className='flex items-center gap-5 justify-center'>
-					<button
-						className='border p-3 bg-white rounded-2xl w-6/12 transition-color duration-700 hover:border-primary'
-						onClick={() => setIsLoginForm(true)}
-					>
+					<button className='border p-3 bg-white rounded-2xl w-6/12 transition-color duration-700 hover:border-primary'>
 						Login
 					</button>
 				</div>
