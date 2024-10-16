@@ -18,7 +18,7 @@ export default function OnlineMenuLayout({
 	return (
 		<div className='flex flex-col min-h-screen'>
 			<Header />
-			<main className='flex-grow'>
+			<main className='flex-grow bg-menu-bg'>
 				<Container>{children}</Container>
 			</main>
 			<Footer />

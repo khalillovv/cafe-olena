@@ -125,7 +125,7 @@ html {
 	}
 	body {
 		@apply text-foreground;
-		background: url('/bg.png');
+		background: hsl(var(--white));
 	}
 }
 

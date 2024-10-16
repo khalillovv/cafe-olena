@@ -1,4 +1,4 @@
-import { Container, Header } from '@/components'
+import { Header } from '@/components'
 import { SITE_NAME } from '@/constants/seo.constants'
 import type { Metadata } from 'next'
 
@@ -18,7 +18,7 @@ export default function HomeLayout({
 	return (
 		<main className='min-h-screen'>
 			<Header hasAdminPage />
-			<Container>{children}</Container>
+			{children}
 		</main>
 	)
 }

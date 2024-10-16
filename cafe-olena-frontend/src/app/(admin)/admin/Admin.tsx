@@ -38,7 +38,7 @@ export function Admin() {
 	return (
 		<div className='mt-16'>
 			<form
-				className='w-1/4 m-auto shadow rounded-xl p-[48px] bg-gray'
+				className='w-96 m-auto shadow rounded-xl p-[48px] bg-gray'
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<Title title='Auth' />
@@ -67,7 +67,7 @@ export function Admin() {
 
 				<div className='flex items-center gap-5 justify-center'>
 					<button
-						className='border p-3 bg-white rounded-2xl w-6/12'
+						className='border p-3 bg-white rounded-2xl w-6/12 transition-color duration-700 hover:border-primary'
 						onClick={() => setIsLoginForm(true)}
 					>
 						Login

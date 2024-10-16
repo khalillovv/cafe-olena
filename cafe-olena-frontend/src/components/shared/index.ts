@@ -1,5 +1,6 @@
 export { Container } from './container'
 export * from './desktop'
+export { DialogAlert } from './dialog-alert'
 export { Footer } from './footer'
 export { Header } from './header'
 export { HomeMenuButton } from './home-menu-button'
