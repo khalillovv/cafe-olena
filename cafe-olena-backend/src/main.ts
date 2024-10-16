@@ -9,12 +9,12 @@ async function bootstrap() {
 	const configService = app.get(ConfigService)
 
 	const PORT = configService.get<number>('PORT')
-	// const CORS_ADDRESS = configService.get<string>('CORS_ADDRESS')
+	const CORS_ADDRESS = configService.get<string>('CORS_ADDRESS')
 
 	app.setGlobalPrefix('api')
 	app.use(cookieParser())
 	app.enableCors({
-		origin: 'https://cafe-olena.vercel.app',
+		origin: [CORS_ADDRESS],
 		methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 		credentials: true,
 		allowedHeaders: 'Content-Type, Authorization',
