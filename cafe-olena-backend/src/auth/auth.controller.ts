@@ -2,7 +2,6 @@ import {
 	Body,
 	Controller,
 	HttpCode,
-	Options,
 	Post,
 	Req,
 	Res,
@@ -17,13 +16,6 @@ import { AuthDto } from './dto/auth.dto'
 @Controller('auth')
 export class AuthController {
 	constructor(private readonly authService: AuthService) {}
-
-	@Options('login') // Обработка OPTIONS-запроса для /auth/login
-	@HttpCode(200)
-	optionsLogin() {
-		// Возвращаем успешный ответ без тела
-		return
-	}
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
