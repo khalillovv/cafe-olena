@@ -19,6 +19,8 @@ const axiosWithAuth = axios.create(options)
 
 axiosWithAuth.interceptors.request.use(config => {
 	const accessToken = getAccessToken()
+	console.log('Request config', config.headers)
+	if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`
 
 	if (config?.headers && accessToken)
 		config.headers.Authorization = `Bearer ${accessToken}`
@@ -29,6 +31,7 @@ axiosWithAuth.interceptors.request.use(config => {
 axiosWithAuth.interceptors.response.use(
 	config => config,
 	async error => {
+		console.log('Axios error', error)
 		const originalRequest = error.config
 
 		if (
