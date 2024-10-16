@@ -17,6 +17,7 @@ async function bootstrap() {
 		origin: [CORS_ADDRESS],
 		methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 		credentials: true,
+		allowedHeaders: 'Content-Type, Authorization',
 		exposedHeaders: 'set-cookie',
 	})
 
