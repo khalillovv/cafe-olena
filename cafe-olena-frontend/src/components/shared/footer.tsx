@@ -7,6 +7,7 @@ import { Container } from './container'
 import styles from './footer.module.scss'
 import { InformationBlock } from './information-block'
 import { Title } from './title'
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 interface Props {
 	className?: string
@@ -14,7 +15,7 @@ interface Props {
 
 export const Footer: React.FC<Props> = ({ className }) => {
 	const pathname = usePathname()
-	const isSearchPage = pathname === '/search'
+	const isSearchPage = pathname === DASHBOARD_PAGES.SEARCH
 	const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768
 
 	if (isSearchPage && !isDesktop) {

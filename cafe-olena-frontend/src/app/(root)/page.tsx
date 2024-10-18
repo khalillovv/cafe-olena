@@ -1,5 +1,6 @@
 'use client'
 import { MobileHeader, MobileHomeMenu, Skeleton } from '@/components'
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -8,7 +9,7 @@ export default function Home() {
 
 	useEffect(() => {
 		if (window.innerWidth >= 768) {
-			router.push('/online-menu')
+			router.push(DASHBOARD_PAGES.MENU)
 		}
 	}, [router])
 	return (

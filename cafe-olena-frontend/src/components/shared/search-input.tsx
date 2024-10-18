@@ -1,5 +1,6 @@
 'use client'
 
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { CircleX, Search } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useRef } from 'react'
@@ -28,7 +29,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 
 	// Очистка поискового запроса при возврате на /online-menu
 	useEffect(() => {
-		if (pathname === '/online-menu') {
+		if (pathname === DASHBOARD_PAGES.MENU) {
 			setSearchQuery('')
 		}
 	}, [pathname])
@@ -44,10 +45,12 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 			if (isDesktop) {
 				if (query) {
 					// Перенаправление на /search с параметром value
-					router.push(`/search?value=${encodeURIComponent(query)}`)
-				} else if (!query && pathname === '/search') {
+					router.push(
+						`${DASHBOARD_PAGES.SEARCH}?value=${encodeURIComponent(query)}`
+					)
+				} else if (!query && pathname === DASHBOARD_PAGES.SEARCH) {
 					// Если запрос очищен, вернуться на /online-menu
-					router.push('/online-menu')
+					router.push(DASHBOARD_PAGES.MENU)
 				}
 			} else {
 				// Логика для мобильной версии
@@ -59,7 +62,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 					newParams.delete('value')
 				}
 
-				router.replace(`/search?${newParams.toString()}`)
+				router.replace(`${DASHBOARD_PAGES.SEARCH}?${newParams.toString()}`)
 			}
 		}, 500) // Задержка 500 мс
 	}

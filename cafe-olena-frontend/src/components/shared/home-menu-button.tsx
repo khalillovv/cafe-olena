@@ -1,3 +1,4 @@
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
@@ -12,7 +13,7 @@ interface Props {
 
 export const HomeMenuButton: React.FC<Props> = ({ id, title, className }) => {
 	return (
-		<Link href={`/online-menu?menuId=${id}`}>
+		<Link href={`${DASHBOARD_PAGES.MENU}?menuId=${id}`}>
 			<div
 				className={cn(
 					'flex flex-row items-center justify-between px-4 py-4 bg-white rounded-sm shadow-md mb-2',

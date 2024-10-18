@@ -1,4 +1,5 @@
 import { axiosWithAuth } from '@/api/interceptors'
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { IProduct, TypeProductFormState } from '@/types/product.types'
 
 class ProductService {
@@ -11,7 +12,7 @@ class ProductService {
 
 	async searchProduct(value: string) {
 		const response = await axiosWithAuth.get<IProduct[]>(
-			`${this.BASE_URL}/search`,
+			`${this.BASE_URL}${DASHBOARD_PAGES.SEARCH}`,
 			{
 				params: {
 					value,

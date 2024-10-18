@@ -6,6 +6,7 @@ import {
 	AccordionTrigger,
 	Skeleton,
 } from '@/components/ui'
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { useMenuData, useQueryParams } from '@/hooks'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
@@ -46,7 +47,9 @@ export const DesktopCategories: React.FC<Props> = ({
 				{menu?.map(item => (
 					<AccordionItem key={item.id} value={`${item.id}`} className='w-full'>
 						<AccordionTrigger>
-							<Link href={`/online-menu?menuId=${item.id}`}>{item.name}</Link>
+							<Link href={`${DASHBOARD_PAGES.MENU}?menuId=${item.id}`}>
+								{item.name}
+							</Link>
 						</AccordionTrigger>
 						{item.categories && item.categories.length > 0 && (
 							<>
