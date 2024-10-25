@@ -5,16 +5,16 @@ import { EnumTokens } from './services/auth-token.service'
 export async function middleware(request: NextRequest, response: NextResponse) {
 	const { url, cookies } = request
 
-	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
+	const accessToken = cookies.get(EnumTokens.ACCESS_TOKEN)?.value
 
 	const isAdminPage = url.includes(DASHBOARD_PAGES.ADMIN)
 	const isMenuSettingsPage = url.includes(DASHBOARD_PAGES.MENU_SETTINGS)
 
-	if (isMenuSettingsPage && !refreshToken) {
+	if (isMenuSettingsPage && !accessToken) {
 		return NextResponse.rewrite(new URL(DASHBOARD_PAGES.NOT_FOUND, url))
 	}
 
-	if (isAdminPage && !isMenuSettingsPage && refreshToken) {
+	if (isAdminPage && !isMenuSettingsPage && accessToken) {
 		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
 	}
 
