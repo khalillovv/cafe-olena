@@ -55,7 +55,7 @@ export const MenuSettingsSection: React.FC<Props> = ({ className }) => {
 				{products?.map(product => (
 					<p className='flex flex-row justify-between border' key={product.id}>
 						<ProductCard
-							className='max-w-[350px] md:max-w-[500px]'
+							className='max-w-[300px] md:max-w-[500px]'
 							id={product.id}
 							name={product.name}
 							price={product.price}
