@@ -7,5 +7,14 @@ export function useMenu() {
 		queryFn: () => menuService.getAll(),
 	})
 
-	return { menu: data, isLoading, error }
+	const filteredMenu = data?.filter(
+		menu =>
+			menu.categories &&
+			menu.categories.length > 0 &&
+			menu.categories.some(
+				category => category.products && category.products.length > 0
+			)
+	)
+
+	return { menu: data, filteredMenu, isLoading, error }
 }

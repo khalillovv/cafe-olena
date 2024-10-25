@@ -9,4 +9,13 @@ export interface IProduct extends IBase {
 	categoryId: number
 }
 
+export interface IProductForm {
+	name: string
+	price: string
+	ingredients?: string
+	grams?: string
+	gramsType?: string
+	categoryId: number
+}
+
 export type TypeProductFormState = Partial<Omit<IProduct, 'id' | 'updatedAt'>>

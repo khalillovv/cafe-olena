@@ -16,7 +16,7 @@ class CategoryService {
 		return response
 	}
 
-	async deleteCategory(id: string) {
+	async deleteCategory(id: number) {
 		const response = await axiosWithAuth.delete(`${this.BASE_URL}/${id}`)
 		return response
 	}

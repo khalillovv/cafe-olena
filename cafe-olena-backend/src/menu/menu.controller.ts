@@ -7,6 +7,9 @@ import {
 	Param,
 	ParseIntPipe,
 	Post,
+	Put,
+	UsePipes,
+	ValidationPipe,
 } from '@nestjs/common'
 import { Auth } from '../auth/decorators/auth.decorator'
 import { MenuDto } from './dto/menu.dto'
@@ -26,6 +29,17 @@ export class MenuController {
 	@Auth()
 	async create(@Body() dto: MenuDto) {
 		return this.menuService.create(dto)
+	}
+
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	@Put(':id')
+	@Auth()
+	async update(
+		@Body() dto: Partial<MenuDto>,
+		@Param('id', ParseIntPipe) id: number
+	) {
+		return this.menuService.update(dto, id)
 	}
 
 	@HttpCode(200)

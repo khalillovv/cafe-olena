@@ -11,7 +11,7 @@ interface Props {
 
 export const MobileMenuSelector: React.FC<Props> = ({ className }) => {
 	const { menuId } = useQueryParams()
-	const { menu, menuLoading } = useMenuData()
+	const { filteredMenu, menuLoading } = useMenuData()
 
 	if (menuLoading) {
 		return (
@@ -26,7 +26,7 @@ export const MobileMenuSelector: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn('h-14', className)}>
 			<Slider>
-				{menu?.map(item => (
+				{filteredMenu?.map(item => (
 					<Link key={item.id} href={`?menuId=${item.id}`}>
 						<button
 							className={cn(

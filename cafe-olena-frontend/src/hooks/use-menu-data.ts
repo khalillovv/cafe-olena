@@ -7,10 +7,11 @@ export const useMenuData = (menuId?: number, value?: string) => {
 		filteredCategories,
 		isLoading: categoriesLoading,
 	} = useCategories(menuId)
-	const { menu, isLoading: menuLoading } = useMenu()
+	const { menu, filteredMenu, isLoading: menuLoading } = useMenu()
 
 	return {
 		menu,
+		filteredMenu,
 		categories,
 		filteredCategories,
 		categoriesLoading,

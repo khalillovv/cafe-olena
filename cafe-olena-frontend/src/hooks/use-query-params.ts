@@ -2,9 +2,9 @@ import { useSearchParams } from 'next/navigation'
 import { useMenuData } from './use-menu-data'
 
 export const useQueryParams = () => {
-	const { menu } = useMenuData()
+	const { filteredMenu } = useMenuData()
 	const searchParams = useSearchParams()
-	const menuId = Number(searchParams.get('menuId')) || menu?.[0].id
+	const menuId = Number(searchParams.get('menuId')) || filteredMenu?.[0].id
 	const categoryId = Number(searchParams.get('categoryId'))
 	const searchValue = searchParams.get('value')
 

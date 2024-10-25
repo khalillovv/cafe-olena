@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const MobileHomeMenu: React.FC<Props> = ({ className }) => {
-	const { menu } = useMenuData()
+	const { filteredMenu } = useMenuData()
 	return (
 		<div className={cn('bg-gray p-4', className)}>
 			<div className='flex flex-row justify-center items-center mb-2'>
@@ -21,8 +21,8 @@ export const MobileHomeMenu: React.FC<Props> = ({ className }) => {
 				<div className='border border-border h-[1px] w-full' />
 			</div>
 			<div>
-				{menu
-					? menu.map(item => (
+				{filteredMenu
+					? filteredMenu.map(item => (
 							<HomeMenuButton key={item.id} id={item.id} title={item.name} />
 					  ))
 					: Array.from({ length: 2 }).map((_, index) => (

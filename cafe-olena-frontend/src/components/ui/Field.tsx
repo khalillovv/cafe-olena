@@ -10,17 +10,32 @@ interface InputFieldProps {
 	disabled?: boolean
 	type?: string
 	isNumber?: boolean
+	error?: string
 }
 
 export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 	(
-		{ label, id, extra, type, placeholder, state, disabled, isNumber, ...rest },
+		{
+			label,
+			id,
+			extra,
+			type,
+			placeholder,
+			state,
+			disabled,
+			isNumber,
+			error,
+			...rest
+		},
 		ref
 	) => {
 		return (
 			<div className={`${extra}`}>
 				<label htmlFor={id} className={`text-sm ml-1.5 font-medium`}>
 					{label}
+					{error ? (
+						<span className='ml-1 text-red text-sm'>{error}</span>
+					) : null}
 				</label>
 				<input
 					ref={ref}
@@ -28,7 +43,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 					type={type}
 					id={id}
 					placeholder={placeholder}
-					className={`mt-2 flex w-full items-center justify-center rounded-lg border border-border bg-white/0 p-3 text-base outline-none  placeholder:font-normal duration-500 transition-colors focus:border-primary ${
+					className={`mt-1 flex w-full items-center justify-center rounded-lg border border-border bg-white/0 p-3 text-base outline-none  placeholder:font-normal duration-500 transition-colors focus:border-primary ${
 						disabled === true
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
 							: state === 'error'

@@ -22,7 +22,7 @@ export const DesktopCategories: React.FC<Props> = ({
 	className,
 }) => {
 	const { menuId } = useQueryParams()
-	const { menu, menuLoading } = useMenuData(menuId)
+	const { filteredMenu, menuLoading } = useMenuData(menuId)
 
 	if (menuLoading) {
 		return (
@@ -44,7 +44,7 @@ export const DesktopCategories: React.FC<Props> = ({
 				className='w-full'
 				value={!hasSearch && menuId ? `${menuId}` : undefined}
 			>
-				{menu?.map(item => (
+				{filteredMenu?.map(item => (
 					<AccordionItem key={item.id} value={`${item.id}`} className='w-full'>
 						<AccordionTrigger>
 							<Link href={`${DASHBOARD_PAGES.MENU}?menuId=${item.id}`}>

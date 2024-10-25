@@ -9,20 +9,20 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 interface Props {
-	trigger?: string
+	trigger?: ReactNode
 	title?: string
 	description?: string
-	confirm?: () => void
-	className?: string
+	confirm: () => void
 }
 
 export const DialogAlert: React.FC<Props> = ({
 	trigger,
 	title,
 	description,
+	confirm,
 }) => {
 	return (
 		<AlertDialog>

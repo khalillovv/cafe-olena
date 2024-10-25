@@ -7,9 +7,14 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 
 	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
 
-	const isAdminPage = url.includes('/admin')
+	const isAdminPage = url.includes(DASHBOARD_PAGES.ADMIN)
+	const isMenuSettingsPage = url.includes(DASHBOARD_PAGES.MENU_SETTINGS)
 
-	if (isAdminPage && refreshToken) {
+	if (isMenuSettingsPage && !refreshToken) {
+		return NextResponse.rewrite(new URL(DASHBOARD_PAGES.NOT_FOUND, url))
+	}
+
+	if (isAdminPage && !isMenuSettingsPage && refreshToken) {
 		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
 	}
 

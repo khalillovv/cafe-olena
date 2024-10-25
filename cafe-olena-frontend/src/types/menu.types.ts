@@ -6,4 +6,8 @@ export interface IMenu extends IBase {
 	categories?: ICategory[]
 }
 
+export interface IMenuForm {
+	name: string
+}
+
 export type TypeMenuFormState = Partial<Omit<IMenu, 'id' | 'updatedAt'>>

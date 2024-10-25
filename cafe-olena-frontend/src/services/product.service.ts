@@ -32,7 +32,7 @@ class ProductService {
 		return response
 	}
 
-	async deleteProduct(id: string) {
+	async deleteProduct(id: number) {
 		const response = await axiosWithAuth.delete(`${this.BASE_URL}/${id}`)
 		return response
 	}

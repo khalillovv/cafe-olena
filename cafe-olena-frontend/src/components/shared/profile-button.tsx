@@ -1,14 +1,9 @@
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { getAccessToken } from '@/services/auth-token.service'
 import { authService } from '@/services/auth.service'
 import { useMutation } from '@tanstack/react-query'
-import {
-	CircleUser,
-	CreditCard,
-	Keyboard,
-	LogOut,
-	Settings,
-	User,
-} from 'lucide-react'
+import { CircleUser, LogOut, MenuSquare } from 'lucide-react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import {
 	DropdownMenu,
@@ -51,22 +46,12 @@ export const ProfileButton = () => {
 						<DropdownMenuLabel>Кафе-бар Олена</DropdownMenuLabel>
 						<DropdownMenuSeparator />
 						<DropdownMenuGroup>
-							<DropdownMenuItem>
-								<User className='mr-2 h-4 w-4' />
-								<span>Profile</span>
-							</DropdownMenuItem>
-							<DropdownMenuItem>
-								<CreditCard className='mr-2 h-4 w-4' />
-								<span>Billing</span>
-							</DropdownMenuItem>
-							<DropdownMenuItem>
-								<Settings className='mr-2 h-4 w-4' />
-								<span>Settings</span>
-							</DropdownMenuItem>
-							<DropdownMenuItem>
-								<Keyboard className='mr-2 h-4 w-4' />
-								<span>Keyboard shortcuts</span>
-							</DropdownMenuItem>
+							<Link href={DASHBOARD_PAGES.MENU_SETTINGS}>
+								<DropdownMenuItem>
+									<MenuSquare className='mr-2 h-4 w-4' />
+									<span>Редагувати меню</span>
+								</DropdownMenuItem>
+							</Link>
 						</DropdownMenuGroup>
 
 						<DropdownMenuSeparator />

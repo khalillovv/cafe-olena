@@ -15,6 +15,9 @@ export class MenuService {
 					},
 				},
 			},
+			orderBy: {
+				id: 'asc',
+			},
 		})
 	}
 
@@ -24,11 +27,36 @@ export class MenuService {
 		})
 	}
 
-	async delete(menuId: number) {
-		return this.prisma.menu.delete({
+	async update(dto: Partial<MenuDto>, menuId: number) {
+		return this.prisma.menu.update({
 			where: {
 				id: menuId,
 			},
+			data: dto,
+		})
+	}
+
+	async delete(menuId: number) {
+		return this.prisma.$transaction(async prisma => {
+			await prisma.product.deleteMany({
+				where: {
+					category: {
+						menuId: menuId,
+					},
+				},
+			})
+
+			await prisma.category.deleteMany({
+				where: {
+					menuId: menuId,
+				},
+			})
+
+			return prisma.menu.delete({
+				where: {
+					id: menuId,
+				},
+			})
 		})
 	}
 }

@@ -14,6 +14,9 @@ export class CategoryService {
 			include: {
 				products: true,
 			},
+			orderBy: {
+				id: 'asc',
+			},
 		})
 	}
 
@@ -23,11 +26,28 @@ export class CategoryService {
 		})
 	}
 
-	async delete(categoryId: number) {
-		return this.prisma.category.delete({
+	async update(dto: Partial<CategoryDto>, categoryId: number) {
+		return this.prisma.category.update({
 			where: {
 				id: categoryId,
 			},
+			data: dto,
+		})
+	}
+
+	async delete(categoryId: number) {
+		return this.prisma.$transaction(async prisma => {
+			await prisma.product.deleteMany({
+				where: {
+					categoryId: categoryId,
+				},
+			})
+
+			return prisma.category.delete({
+				where: {
+					id: categoryId,
+				},
+			})
 		})
 	}
 }

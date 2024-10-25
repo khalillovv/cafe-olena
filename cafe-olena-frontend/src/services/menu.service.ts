@@ -14,7 +14,7 @@ class MenuService {
 		return response
 	}
 
-	async deleteMenu(id: string) {
+	async deleteMenu(id: number) {
 		const response = await axiosWithAuth.delete(`${this.BASE_URL}/${id}`)
 		return response
 	}
