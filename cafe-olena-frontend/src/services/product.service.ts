@@ -27,7 +27,7 @@ class ProductService {
 		return response
 	}
 
-	async updateTask(id: string, data: TypeProductFormState) {
+	async updateProduct(id: number, data: TypeProductFormState) {
 		const response = await axiosWithAuth.put(`${this.BASE_URL}/${id}`, data)
 		return response
 	}

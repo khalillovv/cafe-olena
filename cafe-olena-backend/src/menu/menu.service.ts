@@ -10,6 +10,9 @@ export class MenuService {
 		return this.prisma.menu.findMany({
 			include: {
 				categories: {
+					orderBy: {
+						id: 'asc',
+					},
 					include: {
 						products: true,
 					},

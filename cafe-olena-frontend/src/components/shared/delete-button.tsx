@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { XCircle } from 'lucide-react'
+import { X } from 'lucide-react'
 import React from 'react'
 import { DialogAlert } from './dialog-alert'
 
@@ -20,9 +20,9 @@ export const DeleteButton: React.FC<Props> = ({
 				title={name}
 				confirm={() => onConfirm()}
 				trigger={
-					<XCircle
+					<X
 						className={cn(
-							'text-red hover:opacity-80 cursor-pointer',
+							'text-red hover:bg-red/10 rounded-full transition-colors cursor-pointer',
 							className
 						)}
 						width={24}

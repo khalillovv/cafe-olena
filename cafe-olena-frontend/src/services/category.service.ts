@@ -16,6 +16,11 @@ class CategoryService {
 		return response
 	}
 
+	async updateCategory(id: number, data: TypeCategoryFormState) {
+		const response = await axiosWithAuth.put(`${this.BASE_URL}/${id}`, data)
+		return response
+	}
+
 	async deleteCategory(id: number) {
 		const response = await axiosWithAuth.delete(`${this.BASE_URL}/${id}`)
 		return response

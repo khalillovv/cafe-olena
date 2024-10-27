@@ -18,6 +18,11 @@ class MenuService {
 		const response = await axiosWithAuth.delete(`${this.BASE_URL}/${id}`)
 		return response
 	}
+
+	async updateMenu(id: number, data: TypeMenuFormState) {
+		const response = await axiosWithAuth.put(`${this.BASE_URL}/${id}`, data)
+		return response
+	}
 }
 
 export const menuService = new MenuService()
