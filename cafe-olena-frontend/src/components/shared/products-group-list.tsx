@@ -1,7 +1,9 @@
 'use client'
 import { cn } from '@/lib/utils'
+import { useCategoryStore } from '@/store'
 import { IProduct } from '@/types/product.types'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useIntersection } from 'react-use'
 import { Skeleton } from '../ui'
 import { ProductCard } from './product-card'
 import styles from './products-group-list.module.scss'
@@ -11,7 +13,6 @@ interface Props {
 	title: string
 	items?: IProduct[]
 	className?: string
-	type?: string
 	isLoading?: boolean
 	categoryId: number
 }
@@ -20,10 +21,28 @@ export const ProductsGroupList: React.FC<Props> = ({
 	title,
 	items,
 	categoryId,
-	type,
 	isLoading,
 	className,
 }) => {
+	const setActiveCategoryId = useCategoryStore(state => state.setActiveId)
+	const intersectionRef = useRef<HTMLDivElement>(null)
+	const registerCategoryRef = useCategoryStore(
+		state => state.registerCategoryRef
+	)
+	const intersection = useIntersection(intersectionRef, { threshold: 0.4 })
+
+	useEffect(() => {
+		if (intersection?.isIntersecting) {
+			setActiveCategoryId(categoryId)
+		}
+	}, [intersection?.isIntersecting, categoryId])
+
+	useEffect(() => {
+		if (intersectionRef.current) {
+			registerCategoryRef(categoryId, intersectionRef)
+		}
+	}, [categoryId, intersectionRef])
+
 	if (isLoading) {
 		return (
 			<div className={styles.productsGroupList}>
@@ -36,19 +55,24 @@ export const ProductsGroupList: React.FC<Props> = ({
 	}
 
 	return (
-		<div className={cn(styles.productsGroupList, className)}>
+		<div
+			className={cn(styles.productsGroupList, className)}
+			ref={intersectionRef}
+		>
 			<Title className={styles.title} title={title} />
-			{items?.map(product => (
-				<ProductCard
-					key={product.id}
-					id={product.id}
-					name={product.name}
-					price={product.price}
-					ingredients={product.ingredients}
-					grams={product.grams}
-					type={product.gramsType}
-				/>
-			))}
+			<div>
+				{items?.map(product => (
+					<ProductCard
+						key={product.id}
+						id={product.id}
+						name={product.name}
+						price={product.price}
+						ingredients={product.ingredients}
+						grams={product.grams}
+						type={product.gramsType}
+					/>
+				))}
+			</div>
 		</div>
 	)
 }

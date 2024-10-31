@@ -1,11 +1,29 @@
 import { create } from 'zustand'
 
-interface State {
+interface CategoryStore {
 	activeId: number
-	setActiveId: (activeId: number) => void
+	setActiveId: (id: number) => void
+	categoryRefs: Record<number, React.RefObject<HTMLDivElement>>
+	registerCategoryRef: (
+		id: number,
+		ref: React.RefObject<HTMLDivElement>
+	) => void
+	scrollToCategory: (id: number) => void
 }
 
-export const useCategoryStore = create<State>()(set => ({
+export const useCategoryStore = create<CategoryStore>((set, get) => ({
 	activeId: 0,
-	setActiveId: (activeId: number) => set({ activeId }),
+	setActiveId: id => set({ activeId: id }),
+	categoryRefs: {},
+	registerCategoryRef: (id, ref) => {
+		set(state => ({
+			categoryRefs: { ...state.categoryRefs, [id]: ref },
+		}))
+	},
+	scrollToCategory: id => {
+		const ref = get().categoryRefs[id]
+		if (ref?.current) {
+			ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+		}
+	},
 }))

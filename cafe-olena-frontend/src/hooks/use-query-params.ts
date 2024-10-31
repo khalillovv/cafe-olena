@@ -5,7 +5,7 @@ export const useQueryParams = () => {
 	const { filteredMenu } = useMenuData()
 	const searchParams = useSearchParams()
 	const menuId = Number(searchParams.get('menuId')) || filteredMenu?.[0].id
-	const categoryId = Number(searchParams.get('categoryId'))
+	const categoryName = searchParams.get('cat')
 	const searchValue = searchParams.get('value')
 
 	const generateUrlWithParams = (newParams: Record<string, string>) => {
@@ -15,5 +15,5 @@ export const useQueryParams = () => {
 		})
 		return `?${params.toString()}`
 	}
-	return { menuId, categoryId, searchValue, generateUrlWithParams }
+	return { menuId, categoryName, searchValue, generateUrlWithParams }
 }
