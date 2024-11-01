@@ -29,6 +29,7 @@ export const AddMenuModal: React.FC<Props> = ({ open, onClose }) => {
 	const onSubmit: SubmitHandler<IMenuForm> = data => {
 		createMenu(data)
 		reset()
+		handleClose()
 	}
 
 	const nameError = formState.errors['name']?.message

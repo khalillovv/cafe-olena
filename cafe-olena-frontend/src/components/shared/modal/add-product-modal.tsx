@@ -40,6 +40,7 @@ export const AddProductModal: React.FC<Props> = ({ open, onClose }) => {
 	const onSubmit: SubmitHandler<IProductForm> = data => {
 		createProduct(data)
 		reset()
+		handleClose()
 	}
 
 	const nameError = formState.errors['name']?.message
