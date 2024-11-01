@@ -40,6 +40,8 @@ export const AddProductModal: React.FC<Props> = ({ open, onClose }) => {
 	const onSubmit: SubmitHandler<IProductForm> = data => {
 		createProduct(data)
 		reset()
+		setValue('gramsType', '')
+		setValue('categoryId', 0)
 		handleClose()
 	}
 
@@ -90,7 +92,7 @@ export const AddProductModal: React.FC<Props> = ({ open, onClose }) => {
 								type='text'
 								{...register('grams')}
 							/>
-							<div className='mt-8'>
+							<div className='mt-8 w-36 md:w-40'>
 								<Select onValueChange={value => setValue('gramsType', value)}>
 									<SelectTrigger>
 										<SelectValue placeholder='Виберіть іконку:' />
@@ -98,7 +100,9 @@ export const AddProductModal: React.FC<Props> = ({ open, onClose }) => {
 									<SelectContent>
 										<SelectGroup>
 											<SelectLabel>Список іконок</SelectLabel>
-
+											<SelectItem value='none'>
+												<span className='flex flex-row gap-1'>none</span>
+											</SelectItem>
 											<SelectItem value='gram'>
 												<span className='flex flex-row gap-1'>
 													<Scale width={16} height={16} /> грами

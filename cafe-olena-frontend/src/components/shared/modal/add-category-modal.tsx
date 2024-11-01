@@ -39,6 +39,7 @@ export const AddCategoryModal: React.FC<Props> = ({ open, onClose }) => {
 	const onSubmit: SubmitHandler<ICategoryForm> = data => {
 		createCategories(data)
 		reset()
+		setValue('menuId', 0)
 		handleClose()
 	}
 
