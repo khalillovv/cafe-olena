@@ -11,7 +11,6 @@ interface Props {
 
 export const MobileCategories: React.FC<Props> = ({ className }) => {
 	const categoryActiveId = useCategoryStore(state => state.activeId)
-	console.log(categoryActiveId)
 	const scrollToCategory = useCategoryStore(state => state.scrollToCategory)
 	const { menuId } = useQueryParams()
 	const { filteredCategories, categoriesLoading } = useMenuData(menuId)
