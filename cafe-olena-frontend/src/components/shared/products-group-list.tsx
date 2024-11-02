@@ -1,4 +1,5 @@
 'use client'
+import { useQueryParams } from '@/hooks'
 import { cn } from '@/lib/utils'
 import { useCategoryStore } from '@/store'
 import { IProduct } from '@/types/product.types'
@@ -30,12 +31,13 @@ export const ProductsGroupList: React.FC<Props> = ({
 		state => state.registerCategoryRef
 	)
 	const intersection = useIntersection(intersectionRef, { threshold: 0.4 })
+	const { menuId } = useQueryParams()
 
 	useEffect(() => {
 		if (intersection?.isIntersecting) {
 			setActiveCategoryId(categoryId)
 		}
-	}, [intersection?.isIntersecting, categoryId])
+	}, [intersection?.isIntersecting, categoryId, menuId])
 
 	useEffect(() => {
 		if (intersectionRef.current) {
