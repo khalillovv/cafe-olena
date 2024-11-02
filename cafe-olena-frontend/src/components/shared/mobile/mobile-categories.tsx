@@ -27,10 +27,11 @@ export const MobileCategories: React.FC<Props> = ({ className }) => {
 
 	return (
 		<div className={cn('bg-white py-2 px-4', className)}>
-			<Slider>
+			<Slider activeItemId={categoryActiveId}>
 				{filteredCategories?.map(category => (
 					<button
 						key={category.id}
+						data-id={category.id}
 						className={cn(
 							'text-[12px] leading-3.5 font-semibold uppercase border border-border rounded-sm min-h-10 px-3 mr-1',
 							categoryActiveId === category.id && 'text-primary border-primary'
