@@ -9,8 +9,9 @@ import {
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import { useMenuData, useQueryParams } from '@/hooks'
 import { cn } from '@/lib/utils'
+import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 interface Props {
 	hasSearch?: boolean
@@ -23,6 +24,21 @@ export const DesktopCategories: React.FC<Props> = ({
 }) => {
 	const { menuId } = useQueryParams()
 	const { filteredMenu, menuLoading } = useMenuData(menuId)
+	const [activeCategoryId, setActiveCategoryId] = useState<number | null>(null)
+	const handleCategoryClick = (categoryId: number) => {
+		setActiveCategoryId(categoryId) // Обновляем активную категорию
+		const targetElement = document.getElementById(`category-${categoryId}`)
+		if (targetElement) {
+			const yOffset = -120
+			const yPosition =
+				targetElement.getBoundingClientRect().top + window.scrollY + yOffset
+
+			window.scrollTo({
+				top: yPosition,
+				behavior: 'smooth',
+			})
+		}
+	}
 
 	if (menuLoading) {
 		return (
@@ -59,7 +75,19 @@ export const DesktopCategories: React.FC<Props> = ({
 											category.products && category.products.length > 0
 									)
 									.map(category => (
-										<AccordionContent key={category.id}>
+										<AccordionContent
+											key={category.id}
+											onClick={() => handleCategoryClick(category.id)}
+											className={cn(
+												'flex flex-row',
+												activeCategoryId === category.id && 'text-primary'
+											)}
+										>
+											<span className='min-w-4'>
+												{activeCategoryId === category.id && (
+													<ChevronRight width={16} height={16} />
+												)}
+											</span>
 											{category.name}
 										</AccordionContent>
 									))}

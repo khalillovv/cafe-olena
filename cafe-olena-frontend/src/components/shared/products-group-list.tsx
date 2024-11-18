@@ -58,6 +58,7 @@ export const ProductsGroupList: React.FC<Props> = ({
 
 	return (
 		<div
+			id={`category-${categoryId}`}
 			className={cn(styles.productsGroupList, className)}
 			ref={intersectionRef}
 		>

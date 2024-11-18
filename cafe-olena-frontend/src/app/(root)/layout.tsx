@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 		default: SITE_NAME,
 		template: `%s | ${SITE_NAME}`,
 	},
-	description: 'Best one for planning',
+	description: 'Кафе-бар Олена',
 }
 
 export default function HomeLayout({
